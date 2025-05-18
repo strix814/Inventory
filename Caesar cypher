@@ -1,0 +1,16 @@
+def caesar(cipher_shift_value):
+    alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    word = input("Enter the word you want to encrypt: ").upper()
+    caesar_result = []
+
+    for char in word:
+        if char in alphabet:
+            new_index = (alphabet.index(char) + cipher_shift_value) % len(alphabet)
+            caesar_result.append(alphabet[new_index])
+        else:
+            caesar_result.append(char)  # Preserve non-alphabet characters
+            
+    return ''.join(caesar_result)
+
+shift_value = int(input("Enter the cipher shift value: "))
+print("Encrypted word:", caesar(shift_value))
